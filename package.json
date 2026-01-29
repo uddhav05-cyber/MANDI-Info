@@ -7,7 +7,9 @@
   ],
   "scripts": {
     "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:demo": "concurrently \"npm run dev:backend:demo\" \"npm run dev:frontend\"",
     "dev:backend": "npm run dev --workspace=backend",
+    "dev:backend:demo": "npm run dev:demo --workspace=backend",
     "dev:frontend": "npm run dev --workspace=frontend",
     "build": "npm run build --workspaces",
     "test": "npm run test --workspaces",

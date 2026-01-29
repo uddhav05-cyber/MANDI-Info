@@ -4,6 +4,8 @@ import helmet from 'helmet';
 import dotenv from 'dotenv';
 import { testConnection, closePool } from './config/database';
 import { createAuthRouter } from './routes/auth.routes';
+import { createTranslationRouter } from './routes/translation.routes';
+import qrRoutes from './routes/qr.routes';
 
 dotenv.config();
 
@@ -36,6 +38,8 @@ app.get('/health', async (_req, res) => {
 
 // API Routes
 app.use('/api/auth', createAuthRouter());
+app.use('/api', createTranslationRouter());
+app.use('/api', qrRoutes);
 
 // Initialize database connection and start server
 async function startServer() {

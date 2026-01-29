@@ -7,3 +7,6 @@ export * from './auth.service';
 export * from './otp.service';
 export * from './sms.service';
 export * from './jwt.service';
+export * from './translation.service';
+export * from './qr.service';
+export * from './whatsapp.service';
