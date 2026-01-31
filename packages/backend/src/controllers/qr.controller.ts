@@ -1,6 +1,9 @@
 import { Request, Response } from 'express';
 import { qrService } from '../services/qr.service';
-import { productRepository } from '../repositories/product.repository';
+import { ProductRepository } from '../repositories/product.repository';
+
+// Create singleton instance
+const productRepository = new ProductRepository();
 
 /**
  * QR Code Controller

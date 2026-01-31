@@ -27,9 +27,9 @@ router.get('/products/:id', async (req, res) => {
     if (!product) {
       return res.status(404).json({ error: 'Product not found' });
     }
-    res.json(product);
+    return res.json(product);
   } catch (error) {
-    res.status(500).json({ error: 'Failed to fetch product' });
+    return res.status(500).json({ error: 'Failed to fetch product' });
   }
 });
 
@@ -50,13 +50,13 @@ router.get('/products/:id/qr-code', async (req, res) => {
 
     const { qrCode, encodedData } = await qrService.generateQRCodeWithData(qrCodeData);
 
-    res.json({
+    return res.json({
       qrCode,
       encodedData,
       product,
     });
   } catch (error) {
-    res.status(500).json({ error: 'Failed to generate QR code' });
+    return res.status(500).json({ error: 'Failed to generate QR code' });
   }
 });
 
@@ -89,9 +89,9 @@ router.post('/whatsapp/share', async (req, res) => {
       baseUrl: 'http://localhost:5174',
     });
 
-    res.json(result);
+    return res.json(result);
   } catch (error) {
-    res.status(500).json({ error: 'Failed to generate WhatsApp link' });
+    return res.status(500).json({ error: 'Failed to generate WhatsApp link' });
   }
 });
 
